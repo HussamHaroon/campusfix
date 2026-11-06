@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run smoke tests
+        run: python -m unittest test_smoke -v
+      - name: App boots and health endpoint responds
+        run: |
+          python -c "from app import app; app.run(port=5000)" &
+          sleep 3
+          curl -f http://127.0.0.1:5000/health
