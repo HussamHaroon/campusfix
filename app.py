@@ -47,9 +47,12 @@ CREATE TABLE IF NOT EXISTS status_update(
 """
 
 PAGE = """<!doctype html><html><head><title>CampusFix</title>
-<style>body{font-family:Arial;margin:2em auto;max-width:720px}
-table{border-collapse:collapse;width:100%%}td,th{border:1px solid #999;padding:6px}
-input,select,textarea{width:100%%;margin-bottom:8px;padding:6px}
+<style>html,body{background:#fff;color:#1a1a1a}
+body{font-family:Arial;margin:2em auto;max-width:720px}
+h2{color:#4B356B}
+a{color:#4B356B}
+table{border-collapse:collapse;width:100%%}td,th{border:1px solid #999;padding:6px;text-align:left}
+input,select,textarea{width:100%%;margin-bottom:8px;padding:6px;background:#fff;color:#1a1a1a;border:1px solid #999}
 .badge{padding:2px 8px;border-radius:4px;background:#ddd}
 .err{color:#b00}</style></head><body>
 <h2>CampusFix %s</h2>%s
